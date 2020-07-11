@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Third party apps
-    
+    'crispy_forms',
+    'widget_tweaks',
+
     # User defined apps
     'tumworkbench.userinfo',
 ]
@@ -55,6 +57,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'tumworkbench.urls'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
