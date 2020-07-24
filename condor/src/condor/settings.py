@@ -37,6 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Third party apps
+    'crispy_forms',
+    'widget_tweaks',
+
+    # User defined apps
+    'apps.user_management',
 ]
 
 MIDDLEWARE = [
@@ -51,10 +58,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'condor.urls'
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,4 +126,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL  = '/static/'             # Used to include static resources in web pages
+# STATIC_ROOT = '/var/www/static/'     # Used to get static resources from web server
+MEDIA_URL   = '/media/'              # Used to include media items in web pages
+# MEDIA_ROOT  = '/var/www/media/'      # Used to get media items from web server
+
+# For redirection from login and logout
+LOGIN_REDIRECT_URL   = 'home'
+LOGOUT_REDIRECT_URL  = 'home'
+
+# Set up email backend
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
