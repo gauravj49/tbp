@@ -18,7 +18,7 @@ def home(request):
     template= "dashboard/dashboard_home.html"
     context= {}
   else:
-    template= "user_management/home.html"
+    template= "index.html"
     count = User.objects.count()
     context= {'count': count}
 
