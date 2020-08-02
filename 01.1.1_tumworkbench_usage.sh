@@ -107,3 +107,22 @@ python manage.py startapp user_management apps/user_management
 # 2.4) Managing static files for multiple apps in Django
 # https://overiq.com/django-1-11/handling-static-content-in-django/#static-files-configuration
 # https://stackoverflow.com/questions/7192367/managing-static-files-for-multiple-apps-in-django
+
+# 3) Workbench Apps
+# 3.1) Base dashboard
+mkdir -p apps/workbench && cd apps
+python ../manage.py startapp workbench workbench
+mkdir -p workbench/static/workbench/{js,css,img,fonts}
+cd -
+
+# 3.2) Test app (sum of two numbers using a python script)
+mkdir -p apps/sum && cd apps
+python ../manage.py startapp sum sum
+mkdir -p sum/static/sum/{js,css,img,fonts}
+cd -
+
+# 3.3) Vennplots app
+mkdir -p venn_plots
+python manage.py startapp venn_plots apps/venn_plots
+
+# https://simpleisbetterthancomplex.com/article/2017/08/19/how-to-render-django-form-manually.html

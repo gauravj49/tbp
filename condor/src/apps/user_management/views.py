@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from apps.workbench.views import workbench_home
 
 # Create your views here.
 def home(request):
@@ -21,7 +22,6 @@ def home(request):
     template= "index.html"
     count = User.objects.count()
     context= {'count': count}
-
   return render (request, template, context)
   
 def signup(request):
@@ -32,7 +32,7 @@ def signup(request):
         return redirect('home')
   else:
     form = UserCreationForm()
-  return render(request, 'registration/signup.html', {
-    'form': form
-  })
+    return render(request, 'registration/signup.html', {
+     'form': form
+    })
   

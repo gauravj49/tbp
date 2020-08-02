@@ -44,6 +44,8 @@ INSTALLED_APPS = [
 
     # User defined apps
     'apps.user_management',
+    'apps.venn_plots',
+    'apps.workbench',
 ]
 
 MIDDLEWARE = [
