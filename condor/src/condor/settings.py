@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'apps.user_management',
     'apps.venn_plots',
     'apps.workbench',
+    'apps.sum',
 ]
 
 MIDDLEWARE = [
@@ -132,6 +133,11 @@ STATIC_URL  = '/static/'             # Used to include static resources in web p
 # STATIC_ROOT = '/var/www/static/'     # Used to get static resources from web server
 MEDIA_URL   = '/media/'              # Used to include media items in web pages
 # MEDIA_ROOT  = '/var/www/media/'      # Used to get media items from web server
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
+STATIC_ROOT = os.path.join (os.path.dirname(BASE_DIR), "static")
 
 # For redirection from login and logout
 LOGIN_REDIRECT_URL   = 'home'

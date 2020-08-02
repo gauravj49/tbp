@@ -1,0 +1,108 @@
+#!/usr/bin/python
+"""
+***********************************************
+- PROGRAM: sum.py
+- CONTACT: Gaurav Jain(gaurav.jain@dzne.edu)
+***********************************************
+"""
+#print (__doc__)
+
+# Built in modules
+import argparse
+import os.path
+import sys
+
+# user defined modules
+from gjainLIB import *      # import all the functions from the Gaurav`s python library
+
+'''
+# 3rd party modules
+import textwrap
+import re
+import numpy as np
+import scipy as sp
+import pandas as pd
+import matplotlib as mp
+#mp.use('Agg') # to use matplotlib without X11
+import matplotlib.pyplot as plt
+import subprocess
+import binascii as bi
+import scipy.stats as stats
+from collections import *
+from scipy.stats.stats import nanmean
+
+# for looping files in a dir
+import glob
+
+# user defined modules
+from gjainLIB import *      # import all the functions from the Gaurav`s python library
+
+### for color scale
+from  matplotlib import colors
+from itertools import cycle, islice # barplot colors
+'''
+
+################ USER CONFIGURATION ###################
+#######################################################
+
+def main():
+    # Get input options
+    args        = check_options()
+    input_var1  = args.input_var1
+    input_var2  = args.input_var2
+    #input_var1 = sys.argv[1]
+    #input_var2 = sys.argv[2]
+
+    var3 = float(input_var1) + float(input_var2)
+    print var3
+    
+################ USER DEFINED FUNCTIONS ###################
+
+def check_options():
+    ''' Checks the options to the program '''
+
+    # Create parser object
+    parser = argparse.ArgumentParser(add_help=True,
+        formatter_class=argparse.RawTextHelpFormatter,
+        epilog=textwrap.dedent('''\
+        ----------------- SAMPLE USAGE ------------------
+        - python scripts/sum.py -v1=3 -v2=9.2
+        -------------------------------------------------
+        CONTACT: 
+        	Gaurav Jain
+        	gaurav.jain@dzne.de
+        -------------------------------------------------
+        '''))
+
+    # Add arguments 
+    parser.add_argument("-v1", metavar="--invar1", help="*Input variable 1", dest="input_var1", type=float, required=True)
+    parser.add_argument("-v2", metavar="--invar2", help="*Input variable 2", dest="input_var2", type=float, required=True)
+
+    # Print the help message only if no arguments are supplied
+    if len(sys.argv)==1:
+        parser.print_help()
+        sys.exit(1)
+
+    '''
+    # Save the STDOUT output in a log file
+    if parser.parse_args().output_file:
+        logdir = "{0}/logs".format(get_file_info(parser.parse_args().output_file)[0])
+        create_dir(logdir)
+        logfile = "{0}/{1}.log".format(logdir, get_file_info(parser.parse_args().output_file)[1])
+    else:
+        logdir  = "{0}/logs".format(os.getcwd())
+        create_dir(logdir)
+        logfile = "{0}/{1}.log".format(logdir,get_file_info(sys.argv[0])[1])
+
+    logf = open(logfile, 'w')
+    sys.stdout = Log(logf, sys.stdout)
+    '''
+
+    # Parse command line with parse_args and store it in an object
+    args = parser.parse_args()
+    #print_initial_arguments(parser)
+    return args
+
+# main function
+if __name__=="__main__":
+      main()

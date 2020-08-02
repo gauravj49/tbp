@@ -1,0 +1,22 @@
+{% extends "dashboard/dashboard_home.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% crispy form %}
+{% block head_title %} Add two numbers {% endblock %}
+
+{% block content %}
+
+  <h1> Add two integers </h1>
+  {% if output %}
+      <h3> {{ variable1 }} +  {{ variable2 }}  = {{ output }} </h3>
+  {% else %}
+    <div>
+      <form id="Add_numbers" method="post" action="">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input class='btn btn-primary' type="submit" name="submit" value="Sum" />
+      </form>
+    </div>
+  {% endif %}
+
+{% endblock %}
